@@ -8,8 +8,16 @@ import { Component } from '@angular/core';
   styleUrl: './my-first-comp.component.css'
 })
 export class MyFirstCompComponent {
+
   name : string = "";
   email : string  = "";
   message : string = "";
+  isSubmitted: boolean = false;
+
+
+  OnSubmit():void {
+    this.isSubmitted = true
+
+    }
 
 }
