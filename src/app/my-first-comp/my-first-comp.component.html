@@ -17,28 +17,30 @@
     </form>
   </div>
 
-
+<!--
   <div *ngIf="isSubmitted"> 
     <h3>Form Data:</h3>
     <p><strong>Name:</strong> {{name}}</p>
     <p><strong>Email:</strong> {{email}}</p>
     <p><strong>Message:</strong> {{message}}</p>
   </div>
+-->
 
   <div>
-    <table>
+    <table *ngIf="isSubmitted">
       <thead>
         <tr>
           <th>Name</th>
           <th>Email</th>
           <th>Message</th>
+    
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>ali</td>
-          <td>harry</td>
-          <td>jacob</td>
+        <tr *ngFor="let msg of messages">
+          <td>{{msg.name}}</td>
+          <td>{{msg.email}}</td>
+          <td>{{msg.message}}</td>
         </tr>
       </tbody>
     </table>
