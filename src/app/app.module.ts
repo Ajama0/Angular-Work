@@ -8,6 +8,7 @@ import { MyFirstCompComponent } from './my-first-comp/my-first-comp.component';
 import { MessageDetailsComponent } from './message-details/message-details.component';
 import { MenuComponent } from './menu/menu.component';
 import { AboutComponent } from './about/about.component';
+import { HttpClient } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { AboutComponent } from './about/about.component';
     AppRoutingModule,
     FormsModule
   ],
-  providers: [],
+  providers: [MyFirstCompComponent,HttpClient
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
