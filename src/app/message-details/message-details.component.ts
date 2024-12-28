@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-message-details',
@@ -8,8 +8,17 @@ import { Component, Input } from '@angular/core';
   styleUrl: './message-details.component.css'
 })
 export class MessageDetailsComponent {
-
   @Input()
   message : any = {};
+
+  @Output()
+  index:Number = -1
+
+  @Output()
+  delete : EventEmitter<any> = new EventEmitter<any>
+
+  onDelete() {
+    this.delete.emit(this.index)
+    }
 
 }

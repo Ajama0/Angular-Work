@@ -33,4 +33,9 @@ export class MyFirstCompComponent {
 
     }
 
+    deleteMessage(index: any) {
+      this.messages.splice(index,1)
+      }
+      
+
 }

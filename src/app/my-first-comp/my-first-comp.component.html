@@ -51,6 +51,7 @@
   <app-message-details
     *ngFor = "let msg of messages"
      [message] = "msg"
+     (delete)="deleteMessage($event)"
   ></app-message-details>
 
 </div>
