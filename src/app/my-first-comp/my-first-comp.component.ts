@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { MyFirstService } from '../Service/my-first.service';
 
 @Component({
   selector: 'app-my-first-comp',
@@ -9,6 +10,8 @@ import { Component } from '@angular/core';
 })
 export class MyFirstCompComponent {
 
+
+  
   name : string = "";
   email : string  = "";
   message : string = "";
@@ -19,10 +22,16 @@ export class MyFirstCompComponent {
   //remember the input from the user is binded to the instance variables-data binding
   messages: Array<any> = []
 
+  
+  constructor(private firstService:MyFirstService){
+    this.messages = this.firstService.getAll()
+    this.isSubmitted = this.messages.length>0
+
+  }
 
   OnSubmit():void {
     this.isSubmitted = true
-    this.messages.push(
+    this.firstService.insert(
       {
         "name" : this.name,
         "email" : this.email,
@@ -34,7 +43,7 @@ export class MyFirstCompComponent {
     }
 
     deleteMessage(index: any) {
-      this.messages.splice(index,1)
+      this.firstService.delete(index)
       }
       
 
